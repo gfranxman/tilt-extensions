@@ -13,9 +13,9 @@ def k8s_yaml_glob(*glob_patterns, **kwargs):
         # Compose a short script to collect matches, format them and emit the formatted list.
         script = '\
             import glob; \
-            i=glob.glob("{pat}"); \
-            o="{sep}".join(i); \
-            print(o) \
+            matches=glob.glob("{pat}"); \
+            formatted="{sep}".join(matches); \
+            print(formatted) \
         '.format(pat=pat, sep=SEP).strip()
 
         # Run the script and capture the output.
